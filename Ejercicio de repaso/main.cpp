@@ -4,41 +4,67 @@
 
 int main()
 {
-    int numero;
+    int CantidadDePositivos=0;
+    int SumaDePositivos=0;
+    int CantidadDeNegativos=0;
+    int SumaDeNegativos=0;
+    int CantidadDeCeros=0;
+    int CantidadDePares=0;
+    int CantidadDeImpares=0;
+    float PromedioPositivos;
+    float PromedioNegativos;
+    int DiferenciaEntrePN;
     char seguir='s';
-    int positivo=0;
-    int negativo=0;
-    int ceros=0;
-    do
+    int numero;
+
+    do{
+
+    printf("Ingrese un numero:\n");
+    setbuf(stdin,NULL);
+    scanf("%d",&numero);
+
+    if(numero<0)
     {
-        printf("Ingrese un numero: \n");
-        scanf("%d",&numero);
-        printf("Desea seguir cargando datos¿?: \n");
-        setbuf(stdin,NULL);
-        scanf("%s",&seguir);
-
-        if(numero<0)
-        {
-            negativo++;
-        }
-
-        if(numero>0)
-        {
-            positivo++;
-        }
-        if(numero==0)
-        {
-            ceros++;
-        }
+        CantidadDeNegativos++;
+        SumaDeNegativos=SumaDeNegativos+numero;
+    }
+    if(numero>0)
+    {
+        CantidadDePositivos++;
+        SumaDePositivos=SumaDePositivos+numero;
+    }
+    if(numero==0)
+    {
+        CantidadDeCeros++;
+    }
+    if(((numero%2) == 0)&& numero!=0)
+    {
+        CantidadDePares++;
+    }
 
 
 
+
+
+
+
+
+
+    printf("Desea continuar?: Y/N \n");
+    setbuf(stdin,NULL);
+    scanf("%c",&seguir);
 
     }while(seguir!='n');
 
-    printf("CANTIDAD DE POSITIVOS: %d \n", positivo);
-    printf("CANTIDAD DE NEGATIVOS: %d\n", negativo);
-    printf("CANTIDAD DE CEROS: %d\n", ceros);
+    printf("Cantidad De Positivos: %d \n",CantidadDePositivos);
+    printf("Cantidad De Negativos: %d\n",CantidadDeNegativos);
+    printf("Cantidad De ceros: %d\n",CantidadDeCeros);
+    printf("Cantidad De pares: %d\n",CantidadDePares);
+    printf("Cantidad De impares: %d\n",CantidadDeImpares);
+    printf("Suma de negativos: %d\n",SumaDeNegativos);
+    printf("Suma de positivos: %d\n",SumaDePositivos);
+
+
 
 
 
